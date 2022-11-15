@@ -2,10 +2,14 @@ package com.selfStudy.Zoo;
 
 public class Fish extends Animal implements Swimmable {
 
+    private final String size = "small";
     public Fish(String name){
         this.name = name;
     }
 
+    public String getSize() {
+        return size;
+    }
     public void swim(){
         System.out.println("Рыбка плывет");
     }
@@ -19,4 +23,8 @@ public class Fish extends Animal implements Swimmable {
         return satiety;
     }
 
+    @Override
+    public void voice() {
+        System.out.println();
+    }
 }

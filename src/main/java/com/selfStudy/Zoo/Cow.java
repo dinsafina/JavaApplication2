@@ -2,8 +2,14 @@ package com.selfStudy.Zoo;
 
 public class Cow extends Animal implements Swimmable, Voicable {
 
+    private final String size = "big";
+
     public Cow(String name){
         this.name = name;
+    }
+
+    public String getSize() {
+        return size;
     }
 
     public void swim(){

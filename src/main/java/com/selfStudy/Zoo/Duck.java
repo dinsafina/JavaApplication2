@@ -2,10 +2,14 @@ package com.selfStudy.Zoo;
 
 public class Duck extends Animal implements Swimmable, Voicable, Flyable {
 
+    private final String size = "small";
     public Duck(String name){
         this.name = name;
     }
 
+    public String getSize() {
+        return size;
+    }
     public void swim(){
         System.out.println("Уточка плавает");
     }

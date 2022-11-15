@@ -4,7 +4,8 @@ public abstract class Animal{
     protected String name;
     public int satiety;
 
-
+    private String size;
+    public abstract String getSize();
     public String getName(){
         return name;
     }
@@ -19,14 +20,13 @@ public abstract class Animal{
 
     public abstract int eat(Food food);
 
-//    public int eat(Food food){
-//        satiety+= 10;
-//        return satiety;
-//    }
-
     public void getSatiety(){
         System.out.println(satiety);
     }
+
+    public abstract void voice();
+
+
 
 
 }

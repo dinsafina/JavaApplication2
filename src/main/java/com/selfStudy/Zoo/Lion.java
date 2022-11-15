@@ -2,12 +2,17 @@ package com.selfStudy.Zoo;
 
 public class Lion extends Animal implements Voicable {
 
+    private final String size = "big";
+
+    public String getSize() {
+        return size;
+    }
     public Lion(String name){
         this.name = name;
     }
 
     public void voice(){
-        System.out.println("Лев рычит");
+        System.out.println("Ррррррр");
     }
     public int eat(Food food) {
         if (food instanceof Meat) {

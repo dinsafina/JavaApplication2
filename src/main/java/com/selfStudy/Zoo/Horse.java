@@ -2,8 +2,13 @@ package com.selfStudy.Zoo;
 
 public class Horse extends Animal implements Swimmable, Voicable {
 
+    private final String size = "big";
     public Horse(String name){
        this.name = name;
+    }
+
+    public String getSize() {
+        return size;
     }
 
     @Override
@@ -13,7 +18,7 @@ public class Horse extends Animal implements Swimmable, Voicable {
 
     @Override
     public void voice(){
-        System.out.println("Лошадка ржет");
+        System.out.println("Иго- го");
     }
 
     public int eat(Food food) {
