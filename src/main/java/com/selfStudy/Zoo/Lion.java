@@ -1,25 +1,29 @@
 package com.selfStudy.Zoo;
 
+import static com.selfStudy.Zoo.Size.BIG;
+
 public class Lion extends Animal implements Voicable {
+    private final Size animalSize = BIG;
 
-    private final String size = "big";
-
-    public String getSize() {
-        return size;
-    }
-    public Lion(String name){
-        this.name = name;
+    public Size getAnimalSize() {
+        return animalSize;
     }
 
-    public void voice(){
+    public Lion(String name, Size animalSize) {
+        super(name, animalSize);
+    }
+
+    public void voice() {
         System.out.println("Ррррррр");
     }
+
     public int eat(Food food) {
         if (food instanceof Meat) {
-            satiety += 10;
-        } else{
+            int satiety = this.getSatiety() + 5;
+            this.setSatiety(satiety);
+            return satiety;
+        } else {
             throw new NullPointerException("Неправильная еда");
         }
-        return satiety;
     }
 }

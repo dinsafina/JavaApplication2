@@ -1,13 +1,17 @@
 package com.selfStudy.Zoo;
 
-public enum Aviary {
+public class Aviary {
+    private Size aviarySize;
 
-    BIG,
-    SMALL;
+    public Aviary(Size aviarySize) {
+        this.aviarySize = aviarySize;
+    }
 
-//    public void putInAviary(Animal animal){
-//        System.out.println(animal.getName() + "в вольере");
-//    }
+    public Size getAviarySize() {
+        return aviarySize;
+    }
 
-
+    public void setAviarySize(Size aviarySize) {
+        this.aviarySize = aviarySize;
+    }
 }

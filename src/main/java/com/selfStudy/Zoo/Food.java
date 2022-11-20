@@ -1,5 +1,13 @@
 package com.selfStudy.Zoo;
 
 public abstract class Food {
-    public int satiety;
+    private final String foodName;
+
+    public Food(String foodName) {
+        this.foodName = foodName;
+    }
+
+    public String getFoodName() {
+        return foodName;
+    }
 }

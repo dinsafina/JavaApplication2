@@ -2,49 +2,52 @@ package com.selfStudy.Zoo;
 
 public class Zoo {
     public static void main(String[] args) {
-        Horse burushka = new Horse("Бурушка");
+        final Horse burushka = new Horse("Бурушка", Size.BIG);
         burushka.getAnimalName();
 
-        Cow burenka = new Cow("Буренка");
+        final Cow burenka = new Cow("Буренка", Size.BIG);
         burenka.getAnimalName();
 
-        Duck donald = new Duck("Дональд");
+        final Duck donald = new Duck("Дональд", Size.SMALL);
         donald.getAnimalName();
 
-        Fish zlata = new Fish("Злата");
+        final Fish zlata = new Fish("Злата", Size.SMALL);
         zlata.getAnimalName();
 
-        Lion simba = new Lion("Симба");
+        final Lion simba = new Lion("Симба", Size.BIG);
         simba.getAnimalName();
 
-        Food meat = new Meat();
-        Food grass = new Grass();
+        final Food meat = new Meat("мясо");
+        final Food grass = new Grass("трава");
 
         //животные едят:
-      burushka.eat(grass);
-      burushka.eat(grass);
-      //burushka.eat(meat); //выбрасывается NullPointerException
-      burushka.getSatiety();
+        burushka.eat(grass);
+        burushka.eat(grass);
+        //burushka.eat(meat); // IllegalArgumentException
+        System.out.println("***");
+        System.out.println(burushka.getSatiety());
 
         burenka.eat(grass);
         burenka.eat(grass);
-        //burenka.eat(meat);//выбрасывается NullPointerException
-        burenka.getSatiety();
+        //burenka.eat(meat);// IllegalArgumentException
+        System.out.println(burenka.getSatiety());
 
         donald.eat(grass);
-        donald.getSatiety();
+        System.out.println(donald.getSatiety());
 
         zlata.eat(meat);
         zlata.eat(meat);
-        zlata.getSatiety();
+        System.out.println(zlata.getSatiety());
 
-       simba.eat(meat);
-       simba.eat(meat);
-       //simba.eat(grass); //выбрасывается NullPointerException
-        simba.getSatiety();
+        simba.eat(meat);
+        simba.eat(meat);
+        //simba.eat(grass); // IllegalArgumentException
+        System.out.println(simba.getSatiety());
+
+        donald.fly();
 
         //Работник
-        Employee emp = new Employee();
+        final Employee emp = new Employee();
         emp.feed(burenka, grass);// сотрудник кормит животное
         emp.feed(donald, grass);
         emp.feed(zlata, meat);
@@ -57,31 +60,14 @@ public class Zoo {
         emp.getVoice(burushka);
 
         //Вольер
-        emp.putInAviary(burenka);
-        emp.putInAviary(donald);
-        emp.putInAviary(zlata);
-        emp.putInAviary(simba);
-        emp.putInAviary(burushka);
+        final Aviary aviaryBig = new Aviary(Size.BIG);
+        final Aviary aviarySmall = new Aviary(Size.SMALL);
 
-         Aviary avBig = Aviary.BIG;
-        System.out.println(avBig);
-
-        System.out.println(burenka.getSize());
-
-        System.out.println("***");
-        emp.inBigAviary(burenka);
-        //emp.inSmallAviary(burenka);  //выбрасывается NullPointerException
-
-        emp.inBigAviary(burushka);
-        //emp.inSmallAviary(burushka);  //выбрасывается NullPointerException
-
-        emp.inBigAviary(zlata);
-        emp.inSmallAviary(zlata);
-
-        emp.inBigAviary(donald);
-        emp.inSmallAviary(donald);
-
-        emp.inBigAviary(simba);
-        //emp.inSmallAviary(simba);  //выбрасывается NullPointerException
+        emp.putInAviary(aviaryBig, burushka);
+        //emp.putInAviary(aviaryBig, donald); // IllegalArgumentException
+        emp.putInAviary(aviarySmall, zlata);
+        emp.putInAviary(aviaryBig, burenka);
+        emp.putInAviary(aviaryBig, simba);
     }
 }
+
